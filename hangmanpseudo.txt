@@ -1,0 +1,14 @@
+Hangman game
+
+need an array of different words
+need to choose one random work from different words
+need to have "_"'s the lenght of the choosen word
+need to have user guees a letter
+if letter is in the world fill one of the "_"
+if letter isnt in the word loose a guess 
+have a counter count how many guesses
+keep track of guessed letters
+keep track of how many times user guess full word
+one word is complete OR user looses all guesses auto pick new word
+
+theme - TWIN PEAKS

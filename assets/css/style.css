@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: url(../images/twin-peaks-2017-1.jpg);
+    color: white;
+    text-align: center;
+    width: 960px;
+    margin: auto;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+}
+
+.gametitle {
+    height: 25%;
+    width: 100%;
+    font-size: 5.625rem;
+    color: #593125;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: #1a8f1d;
+    text-shadow: 5px 5px 5px #000;
+    margin-top: 50px;
+    padding: 30px;
+}
+
+.box {
+    float: left;
+    width: 400px;
+    height: 50%;
+    border: 3pt dashed #1a8f1d;
+}
+
+.box1 {
+    float: right;
+    width: 400px;
+    height: 50%;
+    border: 3pt dashed #1a8f1d;
+}
