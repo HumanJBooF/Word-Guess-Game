@@ -28,12 +28,12 @@ body {
     float: left;
     width: 400px;
     height: 50%;
-    border: 3pt dashed #1a8f1d;
+    border: 10pt groove #000;
 }
 
 .box1 {
     float: right;
     width: 400px;
     height: 50%;
-    border: 3pt dashed #1a8f1d;
+    border: 10pt groove #000;
 }
