@@ -24,7 +24,7 @@
         //holds letters of currentWord
         var currentLetters = [];
         //holds number of "blanks"
-        var numBlanks = [];
+        var numBlanks = 0;
         //empty to store answer
         var answer = [];    
         //empty to hold all wrong guesses, and show user guess
@@ -36,7 +36,18 @@
         var guessesRemaining = 10;
         
 
-     window.onload = function() {
+ window.onload = function() {
+    document.getElementById("underscore").innerHTML = answer.join(" ");
+    document.getElementById("remaining").innerHTML = guessesRemaining;
+    document.getElementById("wins").innerHTML = "Wins " + " " + wins;
+    document.getElementById("losses").innerHTML = "Losses " + " " + losses;
+
+
+ }
+
+
+        
+     function startGame() {
 		//Computer selects a word from the array
 		currentWord = peakWords[Math.floor(Math.random() * peakWords.length)];
 			console.log(currentWord);
@@ -55,25 +66,25 @@
 
             for(i = 0; i < numBlanks; i++) {
                 answer.push("_");
-                console.log(answer);
+                
             }
     
-            document.getElementById("underscore").innerHTML = answer.join(" ");
-            document.getElementById("remaining").innerHTML = guessesRemaining;
-            document.getElementById("wins").innerHTML = "Wins " + " " + wins;
-            document.getElementById("losses").innerHTML = "Losses " + " " + losses;
 
     
 
+        }
 
-       //get input on what keys are being pressed
-       document.onkeyup = function(event) {
-   
-        var ltrsGuess = String.fromCharCode(event.keyCode).toLowerCase();
-            console.log(ltrsGuess);
-            
-            
-   
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+        function compare(letter) {
              //check it pressed key is a letter
              if(event.keyCode >= 65 && event.keyCode <= 90) { //if its part of the alphabet 
 
@@ -81,21 +92,21 @@
                     var correctLetter = false; 
     
                     for(var i = 0; i < numBlanks; i++) { 
-                        if(currentWord[i] == ltrsGuess) {
+                        if(currentWord[i] == letter) {
                             correctLetter = true;
                         }
                     }
                    //check where letter is in word
                     if(correctLetter) {
                         for( var i = 0; i < numBlanks; i++ ) {
-                            if(currentWord[i == ltrsGuess]) {
-                                answer[i] = ltrsGuess;
+                            if(currentWord[i] == letter) {
+                                answer[i] = letter;
                             }
                         }
                     }
                     //if it is not in the word
                     else {
-                        wrongLtrs.push(ltrsGuess);
+                        wrongLtrs.push(letter);
                         guessesRemaining--
                     }
                 }
@@ -103,5 +114,51 @@
             
                }
       
+
+               function rounds() {
+                   
+                
+                document.getElementById("remaining").innerHTML = "Guesses remaining " + " " + guessesRemaining;
+                document.getElementById("underscore").innerHTML = answer.join(" ");
+                document.getElementById("guessed").innerHTML = "Already used: " + " " + wrongLtrs.join(" ");
     
-            }
+                if(currentLetters.toString() == answer.toString()) {
+                    wins++;
+                    alert("Have a nice warm slice of cherry pie and hot cup of black coffee!");
+                    
+                    //update wins
+                    document.getElementById("wins").innerHTML = "Wins: " + " " + wins;
+                    
+                    startGame();
+                    
+                }
+                else if (guessesRemaining == 0) {
+                    losses++;
+    
+                    
+                // Update the wins in the HTML doc
+                document.getElementById("losses").innerHTML = "Losses: " + " " + losses;
+    
+                
+                startGame();
+                document.getElementById("guessed").innerHTML = "Letters Already Guessed:" + " " + " ";
+    
+                }
+           } 
+        
+            
+
+
+
+    startGame(); 
+            
+       //get input on what keys are being pressed
+       document.onkeyup = function(event) {
+   
+        var ltrsGuess = String.fromCharCode(event.keyCode).toLowerCase();
+            
+            compare(ltrsGuess);
+            rounds();
+            
+       }
+    
