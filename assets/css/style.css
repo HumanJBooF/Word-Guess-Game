@@ -29,6 +29,7 @@ body {
     width: 400px;
     height: 50%;
     border: 10pt groove #000;
+    
 }
 
 .box1 {
@@ -36,4 +37,19 @@ body {
     width: 400px;
     height: 50%;
     border: 10pt groove #000;
+}
+
+.wins {
+    height: 100px;
+    width: auto;
+}
+
+.underscore {
+    height: 100px;
+    width: auto;
+}
+
+.remaining {
+    height: 200px;
+    width: 100%;
 }

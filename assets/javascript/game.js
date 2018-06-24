@@ -1,5 +1,5 @@
 //Twin Peaks Theme peaksWords will hold all words have to do with Twin Peaks
-const peakWords = 
+var peakWords = 
     [
         'Woodsman',
         'Agent Dale Cooper',
@@ -17,20 +17,21 @@ const peakWords =
         'Norma Jennings',
         'Big Ed',
     ];
+ 
+    //creates randomly word from peaksWords
+    var currentWord = peakWords[Math.floor(Math.random() * peakWords.length)].toUpperCase();
+    console.log(currentWord);
 
-    
-    //have word be randomly choose
-    let randnum = Math.floor(Math.random() * peakWords.length);
-    let choosen = peakWords[randnum];
-    let under = [];
-    console.log(choosen);
-    //Make underscores appear based on lenght of word choosen
-    
-    let createunderScore = () => {
-        for(let i = 0; i < choosen.length; i++) {
-            under.push('_');
-        }
-        return under;
-    }
-    
-    console.log(createunderScore());
+    //Holds number of guesses left
+    var geussesLeft = 10;
+    document.getElementsByClassName('remaining').innerHTML = geussesLeft;
+    //This will count the number of wins.
+    var wins = 0;
+    document.getElementById("wins").innerHTML = wins;
+
+    var resetLettersGuessed = ""
+
+    //empty array to hold blanks
+    var blanks = [];
+
+
