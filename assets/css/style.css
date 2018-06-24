@@ -12,7 +12,7 @@ body {
     text-transform: uppercase;
 }
 
-.gametitle {
+#gametitle {
     height: 25%;
     width: 100%;
     font-size: 5.625rem;
@@ -24,7 +24,7 @@ body {
     padding: 30px;
 }
 
-.box {
+#box {
     float: left;
     width: 400px;
     height: 500px;
@@ -32,24 +32,24 @@ body {
     
 }
 
-.box1 {
+#box1 {
     float: right;
     width: 400px;
     height: 500px;
     border: 10pt groove #000;
 }
 
-.wins {
+#wins {
     height: 100px;
     width: auto;
 }
 
-.underscore {
+#underscore {
     margin: 20px 20px;
     width: auto;
 }
 
-.remaining {
+#remaining {
     height: 200px;
     width: 100%;
 }
