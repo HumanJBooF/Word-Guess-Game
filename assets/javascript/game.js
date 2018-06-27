@@ -40,12 +40,13 @@
 //load with webpage
  window.onload = function() {
     document.getElementById("underscore").innerHTML = answer.join(" ");
-    document.getElementById("remaining").innerHTML ="guesses remaing " + guessesRemaining;
+    underscore.style.fontSize = '30px';
+    document.getElementById("remaining").innerHTML ="guesses remaining " + guessesRemaining;
     document.getElementById("wins").innerHTML = "Wins " + " " + wins;
     document.getElementById("losses").innerHTML = "Losses " + " " + losses;
     document.getElementById("press").innerHTML = "Press any key to get started!";
     
-}
+
 
 
     //function for game start and reset
@@ -65,8 +66,9 @@
             guessesRemaining = 12; //sets the number to 12
             wrongLtrs = [];        //empty array for the wrong guesse
             answer = [];           //empty array for the underscores
-
-            for(i = 0; i < numBlanks; i++) {
+            document.getElementById("losing-image").setAttribute("src","");
+            
+           for(i = 0; i < numBlanks; i++) {
                 answer.push("_");
                 }
 
@@ -80,7 +82,7 @@
             
                 //check if the letter is in the word
                 var correctLetter = false;
-    
+
                     for(var i = 0; i < numBlanks; i++) { 
                         if(currentWord[i] == letter) {
                             correctLetter = true;
@@ -111,38 +113,71 @@
                 
                 document.getElementById("remaining").innerHTML = "Guesses remaining " + " " + guessesRemaining;
                 document.getElementById("underscore").innerHTML = answer.join(" ");
-                document.getElementById("guessed").innerHTML = "Already used: " + " " + wrongLtrs.join(" ");
+                document.getElementById("guessed").innerHTML = "Letters already guessed: " + " " + wrongLtrs.join(" ");
     
-                
+              
                 if(currentLetters.toString() == answer.toString()) {
                     wins++;
                     document.getElementById("coffee").play();
-                    alert("Have a nice warm slice of cherry pie and hot cup of black coffee!");
+                    imageDisplay();
                     
                     //update wins
                     document.getElementById("wins").innerHTML = "Wins: " + " " + wins;
-                    
-                    startGame();
-                    
+                     //hacky way to make picture go away
+                    setTimeout(function(){
+                        startGame();
+                    },2500);
                 }
+
                 else if (guessesRemaining == 0) {
                     losses++;
                     document.getElementById("amateur").play();
-                    alert("The evil spirit Bob took over your soul... you lose!");
                     
-                    startGame();
+                    imageDisplay();
+                    //hacky way to make picture go away
+                    setTimeout(function(){
+                        startGame();
+                    },2500);
+                    
 
 
                 // Update the losses in the HTML doc
                 document.getElementById("losses").innerHTML = "Losses: " + " " + losses;
-                    
-                
-                
                 document.getElementById("guessed").innerHTML = "Letters Already Guessed:" + " " + " ";
                 
                 }
            } 
-        
+        //adds an function to display an image on win or lose :) 
+           function imageDisplay() {
+              var images = {
+                  woodsman: './assets/images/GottaLight.png',
+                  agentdalecooper: './assets/images/dale-cooper.jpg',
+                  loglady: './assets/images/log-lady.png',
+                  laurapalmer: './assets/images/Meanwhile.jpg',
+                  evilcoop: './assets/images/evil-coop.jpg',
+                  dougiejones: './assets/images/dougiejones.jpg',
+                  albert: './assets/images/albert.jpg',
+                  gordoncole: './assets/images/davidlynch2.jpg',
+                  majorbriggs: './assets/images/Major_Garland_Briggs.jpg',
+                  audreyhorne: './assets/images/AudreyHorne.jpg',
+                  jameshurley: './assets/images/hurley.jpg',
+                  onearmedman: './assets/images/MIKE.jpg',
+                  diane: './assets/images/diane.jpg',
+                  normajennings: './assets/images/norma.jpg',
+                  biged: './assets/images/biged.jpg',
+
+                }
+                //sends image to losing-image div
+                  document.getElementById("losing-image").setAttribute("src",images[currentWord]);
+           //testing
+            // console.log('new new',currentWord);
+            // console.log('imageDisplay',images);
+            // console.log('what is this',answer);
+
+           }
+
+           
+           
 
 
     startGame(); 
@@ -157,3 +192,4 @@
             
        }
     
+    }    
