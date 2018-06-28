@@ -35,7 +35,6 @@ body {
     height: 400px;
     border: 10pt groove #000;
     margin-top: 50px;
-    
 }
 
 #box1 {
@@ -43,7 +42,7 @@ body {
     width: 400px;
     height: 400px;
     border: 10pt groove #000;
-    margin-top: 50px;
+    margin-top: 50px; 
 }
 
 #wins {
@@ -72,6 +71,7 @@ body {
     margin-bottom: 20px;
 }
 
-#losing-image {
+img {
     max-width: 500px;
 }
+
