@@ -47,7 +47,7 @@ window.onload = function () {
     document.getElementById("wins").innerHTML = "Wins " + " " + wins;
     document.getElementById("losses").innerHTML = "Losses " + " " + losses;
     document.getElementById("press").innerHTML = "Press any key to get started!";
-
+   
 
 
 
@@ -69,7 +69,7 @@ window.onload = function () {
         wrongLtrs = [];        //empty array for the wrong guesse
         answer = [];           //empty array for the underscores
         document.getElementById("losing-image").setAttribute("src", "");
-
+        
         for (i = 0; i < numBlanks; i++) {  //pushing out underscores the lenght of the currentWord
             answer.push("_");
         }
@@ -185,7 +185,7 @@ window.onload = function () {
 
 
     startGame();
-
+    
     //get input on what keys are being pressed
     document.onkeyup = function (event) {
         //put the key pressed into ltrsGuess
