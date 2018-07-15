@@ -76,12 +76,13 @@ window.onload = function () {
 
     }
 
+  
 
     //function to compare user guess to currentWord
     function compare(letter) {
         //check if  pressed key is a letter
         if (event.keyCode >= 65 && event.keyCode <= 90) { //in the alphabet 
-
+            
 
             var correctLetter = false;
 
@@ -99,7 +100,6 @@ window.onload = function () {
                 }
             }
 
-
             else {
                 wrongLtrs.push(letter);     //if it is not in the word push to wrongLtrs
                 guessesRemaining--
@@ -108,6 +108,13 @@ window.onload = function () {
         console.log(answer); //test
 
     }
+    
+    // function already(letter) {
+    //     if(currentLetters.indexOf(letter) !== -1 || wrongLtrs.indexOf(letter) !== -1) {
+    //         alert('you did that already!')
+    //     }
+    // }
+
 
     //function to update wins and losses
     function rounds() {
@@ -192,6 +199,7 @@ window.onload = function () {
         var ltrsGuess = String.fromCharCode(event.keyCode).toLowerCase();
         //send the letter to the compare loop
         compare(ltrsGuess);
+       
         rounds();
 
     }
